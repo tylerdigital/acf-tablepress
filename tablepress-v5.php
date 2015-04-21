@@ -82,6 +82,10 @@ class acf_field_tablepress extends acf_field {
   */
   
   function render_field( $field ) {
+    if ( !defined( 'TABLEPRESS_ABSPATH' ) ) {
+      echo 'TablePress must be activated for this ACF field to work';
+      return;
+    }
 
     /* get list of table ID and post ID pairs */
     $table_json = get_option( 'tablepress_tables' );
