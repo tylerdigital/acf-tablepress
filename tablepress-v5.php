@@ -21,7 +21,6 @@ class acf_field_tablepress extends acf_field {
     $this->label = __('TablePress');
     $this->category = __("Relational",'acf'); // Basic, Content, Choice, etc
     $this->defaults = array(
-      'allow_multiple' => 0,
       'allow_null' => 0
     );
 
@@ -64,16 +63,6 @@ class acf_field_tablepress extends acf_field {
       ),
       'layout'  =>  'horizontal'
     ));
-    acf_render_field_setting( $field, array(
-      'label' => 'Allow Multiple?',
-      'type'  =>  'radio',
-      'name'  =>  'allow_multiple',
-      'choices' =>  array(
-        1 =>  __("Yes",'acf'),
-        0 =>  __("No",'acf'),
-      ),
-      'layout'  =>  'horizontal'
-    ));
 
   }
   
@@ -109,13 +98,8 @@ class acf_field_tablepress extends acf_field {
     // override field settings and render
     $field['choices'] = $choices;
     $field['type']    = 'select';
-		if ( $field['allow_multiple'] ) {
-			$multiple = 'multiple="multiple" data-multiple="1"';
-			echo "<input type=\"hidden\" name=\"{$field['name']}\">";
-		}
-		else $multiple = '';
     ?>
-      <select id="<?php echo str_replace(array('[',']'), array('-',''), $field['name']);?>" name="<?php echo $field['name']; if( $field['allow_multiple'] ) echo "[]"; ?>"<?php echo $multiple; ?>>
+      <select id="<?php echo str_replace(array('[',']'), array('-',''), $field['name']);?>" name="<?php echo $field['name']; ?>">
         <?php
 					if ( $field['allow_null'] ) echo '<option value="">- Select -</option>';
           foreach ($field['choices'] as $key => $value) : 
