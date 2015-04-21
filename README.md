@@ -1,7 +1,7 @@
-Advanced Custom Fields: Tablepress
+Advanced Custom Fields: TablePress
 =======================
 
-This is an Advanced Custom Field custom field to select a Tablepress table,
+This is an Advanced Custom Field custom field to select a TablePress table,
 providing a field that lets you select from a list of tables.
 
 Compatibility

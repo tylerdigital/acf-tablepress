@@ -18,7 +18,7 @@ class acf_field_tablepress extends acf_field {
   function __construct() {
     // vars
     $this->name = 'tablepress_field';
-    $this->label = __('Tablepress');
+    $this->label = __('TablePress');
     $this->category = __("Relational",'acf'); // Basic, Content, Choice, etc
     $this->defaults = array(
       'allow_multiple' => 0,
