@@ -2,7 +2,7 @@ Advanced Custom Fields: TablePress
 =======================
 
 This is an Advanced Custom Field custom field to select a TablePress table,
-providing a field that lets you select from a list of tables.
+providing a field that lets you select from a list of tables.  The field returns the table ID number. 
 
 Compatibility
 ============
