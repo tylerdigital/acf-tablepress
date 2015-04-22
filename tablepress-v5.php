@@ -83,7 +83,7 @@ class acf_field_tablepress extends acf_field {
   
   function render_field( $field ) {
     if ( !defined( 'TABLEPRESS_ABSPATH' ) ) {
-      echo 'TablePress must be activated for this ACF field to work';
+      echo __('TablePress must be activated for this ACF field to work', 'advanced-custom-fields-tablepress');
       return;
     }
 
@@ -95,7 +95,7 @@ class acf_field_tablepress extends acf_field {
     /* Get table titles for list of choices */
     $choices = array();
     if ( !is_array( $tables ) || empty( $tables ) ) {
-      echo 'No TablePress tables found, once you <a href="'.admin_url( 'admin.php?page=tablepress' ).'">add some tables</a> they\'ll show up here';
+      echo __('No TablePress tables found, once you <a href="'.admin_url( 'admin.php?page=tablepress' ).'">add some tables</a> they\'ll show up here', 'advanced-custom-fields-tablepress' );
       return;
     }
     
@@ -110,7 +110,7 @@ class acf_field_tablepress extends acf_field {
     ?>
       <select id="<?php echo str_replace(array('[',']'), array('-',''), $field['name']);?>" name="<?php echo $field['name']; ?>">
         <?php
-					if ( $field['allow_null'] ) echo '<option value="">- Select -</option>';
+					if ( $field['allow_null'] ) echo '<option value="">- '. __('Select', 'advanced-custom-fields-tablepress') .' -</option>';
           foreach ($field['choices'] as $key => $value) : 
             $selected = '';
 						
