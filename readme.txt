@@ -6,7 +6,7 @@ Tested up to: 4.2
 Stable Tag: 1.0
 
 == Description ==
-This add-on for Advanced Custom Fields creates a custom field type to select a TablePress table, providing a field that lets you select from a list of tables.  The field returns the table ID number. 
+This add-on for Advanced Custom Fields creates a custom field type to select a TablePress table, providing a dropdown menu that lets you select from a list of avaliable tables.  The field returns the table ID number. 
 
 This plugin requires:
     - Advanced Custom Fields version 5+ (ACF Pro)
@@ -22,14 +22,24 @@ This plugin requires:
 This field returns the table ID for the table selected.
 
 To display the chosen table on your page, simply use
-
 ```
 <?php 
     $tablepress_id = get_field( 'your_field_here' );
     echo do_shortcode( '[table id="'.$tablepress_id.'"]' ); 
 ?>
 ```
-
+or, to avoid using `do_shortcode()`, use
+```
+<?php
+    $tp_id = get_field( 'tp_table_dropdown' );
+    $args = array(
+      'id'                => $tp_id,
+      'use_datatables'    => true,
+      'print_name'        => false
+    );
+    tablepress_print_table( $args);
+?>
+```
 
 == Changelog ==
 = v 1.0
