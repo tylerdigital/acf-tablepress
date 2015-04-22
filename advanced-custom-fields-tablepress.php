@@ -45,7 +45,7 @@ function acftp_register_required_plugins() {
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
-			'name'      => 'Tablepress',
+			'name'      => 'TablePress',
 			'slug'      => 'tablepress',
 			'required'  => true,
 		),
