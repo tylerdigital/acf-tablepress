@@ -95,7 +95,7 @@ class acf_field_tablepress extends acf_field {
     /* Get table titles for list of choices */
     $choices = array();
     if ( !is_array( $tables ) || empty( $tables ) ) {
-      echo __('No TablePress tables found, once you <a href="'.admin_url( 'admin.php?page=tablepress' ).'">add some tables</a> they\'ll show up here', 'advanced-custom-fields-tablepress' );
+      echo sprintf( __('No TablePress tables found, once you <a href="%s">add some tables</a> they\'ll show up here.', 'advanced-custom-fields-tablepress' ), admin_url( 'admin.php?page=tablepress' ) );
       return;
     }
     
