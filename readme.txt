@@ -31,13 +31,13 @@ To display the chosen table on your page, simply use
 or, to avoid using `do_shortcode()`, use
 ```
 <?php
-    $tp_id = get_field( 'tp_table_dropdown' );
+    $tablepress_id = get_field( 'your_field_here' );
     $args = array(
-      'id'                => $tp_id,
+      'id'                => $tablepress_id,
       'use_datatables'    => true,
       'print_name'        => false
     );
-    tablepress_print_table( $args);
+    tablepress_print_table( $args );
 ?>
 ```
 
