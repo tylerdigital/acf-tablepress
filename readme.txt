@@ -26,7 +26,7 @@ To display the chosen table on your page, simply use
 ```
 <?php 
     $tablepress_id = get_field( 'your_field_here' );
-    echo do_shortcode( '[table id="'.$tablepress_id.'"]' ); 
+    echo do_shortcode( '[table id='.$tablepress_id.' /]' ); 
 ?>
 ```
 
@@ -37,3 +37,8 @@ To display the chosen table on your page, simply use
 
 == About ==
 Written by Phil Tyler for Tyler Digital - <http://tylerdigital.com>
+
+== Credits ==
+This plugin is based on Gravity-Forms-ACF-Field by Adam Pope of Storm Consultancy - https://github.com/stormuk/Gravity-Forms-ACF-Field
+
+His plugin was in turn based on Lewis Mcarey's Users Field ACF add-on - https://github.com/lewismcarey/User-Field-ACF-Add-on
