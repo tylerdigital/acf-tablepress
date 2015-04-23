@@ -25,13 +25,24 @@ License:
 
 */
 
+/* For ACF 5  */
 // $version = 5 and can be ignored until ACF6 exists
-function include_field_types_TablePress( $version ) {
+function include_field_types_tablepress( $version ) {
 	include_once 'tablepress-v5.php';
 }
 
 add_action( 'acf/include_field_types', 'include_field_types_tablepress' );
 
+/* For ACF 4  */
+function register_fields_tablepress() {
+  include_once('tablepress-v4.php');
+}
+
+add_action('acf/register_fields', 'register_fields_tablepress');
+
+
+
+/* Confirms Tablepress in Installed and Activated  */
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
 add_action( 'tgmpa_register', 'acftp_register_required_plugins' );
