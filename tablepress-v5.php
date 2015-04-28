@@ -6,7 +6,8 @@ class acf_field_tablepress extends acf_field {
     $this->label = __('TablePress');
     $this->category = __("Relational",'acf');
     $this->defaults = array(
-      'allow_null' => 0
+      'allow_null' => 0,
+      'return_format' => 'table_id'
     );
 
     parent::__construct();
@@ -23,6 +24,20 @@ class acf_field_tablepress extends acf_field {
         0 =>  __("No",'acf'),
       ),
       'layout'  =>  'horizontal'
+    ));
+
+    // return_format
+    acf_render_field_setting( $field, array(
+      'label'      => __('Return Format','advanced-custom-fields-tablepress'),
+      'instructions'  => '',
+      'type'       => 'radio',
+      'name'       => 'return_format',
+      'choices'    => array(
+        'table_id' => __("Output only the Table ID Number",'advanced-custom-fields-tablepress'),
+        'full_php' => __("Output the table itself. Equivalent to do_shortcode(), but does not use that function.",'advanced-custom-fields-tablepress'),
+      ),
+
+      'layout'  =>  'vertical'
     ));
 
   }
@@ -72,7 +87,15 @@ class acf_field_tablepress extends acf_field {
   }
     
   function format_value( $value, $post_id, $field ) {
-    return $value;
+    if ( $field['return_format'] == 'table_id' ) return $value;
+    if ( $field['return_format'] == 'full_php' ) {
+      $value = tablepress_print_table( array(
+        'id' => $value,
+        'use_datatables' => true,
+        'print_name' => false
+      ) );
+      return $value;
+    }
   }
 }
 
