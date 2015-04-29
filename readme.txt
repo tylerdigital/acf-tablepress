@@ -45,6 +45,7 @@ or, to avoid using `do_shortcode()`, use
 ?>
 ```
 
+To simply display the chosen table on your page, choose the HTML output option, and insert into your php with `the_field( 'your_field_here' )`.
 
 == Changelog ==
 = v 1.0
