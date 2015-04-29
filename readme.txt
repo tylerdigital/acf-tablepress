@@ -21,9 +21,9 @@ This plugin Requires:
 2. Activate the plugin via the Plugins admin page
 
 == Using the field ==
-This field returns the table ID for the table selected.
+This field can return the table ID for the table selected, or the HTML of the table itself.
 
-To display the chosen table on your page, simply add either of the following to your template:
+When returning the table ID, either of the following code will output your table.
 ```
 <?php 
     $tablepress_id = get_field( 'your_field_here' );
@@ -44,6 +44,8 @@ or, to avoid using `do_shortcode()`, use
     }
 ?>
 ```
+
+To simply display the chosen table on your page, choose the HTML output option, and insert into your php with `the_field( 'your_field_here' )`.
 
 == Changelog ==
 = v 1.0
