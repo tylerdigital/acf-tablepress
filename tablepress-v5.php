@@ -33,8 +33,8 @@ class acf_field_tablepress extends acf_field {
       'type'       => 'radio',
       'name'       => 'return_format',
       'choices'    => array(
-        'table_id' => __("Output only the Table ID Number",'advanced-custom-fields-tablepress'),
-        'full_php' => __("Output the table itself. Equivalent to do_shortcode(), but does not use that function.",'advanced-custom-fields-tablepress'),
+        'table_id' => __("Table ID - Output only the Table ID Number",'advanced-custom-fields-tablepress'),
+        'rendered_html' => __("HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function.",'advanced-custom-fields-tablepress'),
       ),
 
       'layout'  =>  'vertical'
@@ -88,14 +88,16 @@ class acf_field_tablepress extends acf_field {
     
   function format_value( $value, $post_id, $field ) {
     if ( $field['return_format'] == 'table_id' ) return $value;
-    if ( $field['return_format'] == 'full_php' ) {
-      $value = tablepress_print_table( array(
+    if ( $field['return_format'] == 'rendered_html' ) {
+      if ( !function_exists( 'tablepress_get_table' ) ) {
+        return 'TablePress must be enabled';
+      }
+      $value = tablepress_get_table( array(
         'id' => $value,
         'use_datatables' => true,
         'print_name' => false
       ) );
-      return $value;
-    }
+      return $value;    }
   }
 }
 
