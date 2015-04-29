@@ -9,8 +9,8 @@ class acf_field_tablepress extends acf_field {
 		$this->label = __('TablePress', 'advanced-custom-fields-tablepress' );
 		$this->category = __("Relational",'acf');
 		$this->defaults = array(
-			'multiple' => 0,
-			'allow_null' => 0
+			'allow_null' => 0,
+	    	'return_format' => 'table_id'
 		);
 
 	    parent::__construct();
@@ -40,6 +40,25 @@ class acf_field_tablepress extends acf_field {
 						0 =>  __("No",'acf'),
 					),
 					'layout'  =>  'horizontal',
+				));
+				?>
+			</td>
+		</tr>
+		<tr class="field_option field_option_<?php echo $this->name; ?>">
+			<td class="label">
+				<label><?php _e("Return Format?",'advanced-custom-fields-tablepress'); ?></label>
+			</td>
+			<td>
+				<?php
+				do_action('acf/create_field', array(
+					'type'  =>  'radio',
+					'name'  =>  'fields['.$key.'][return_format]',
+					'value' =>  $field['return_format'],
+					'choices' =>  array(
+						'table_id' => __("Table ID - Output only the Table ID Number",'advanced-custom-fields-tablepress'),
+						'rendered_html' => __("HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function.",'advanced-custom-fields-tablepress'),
+					),
+					'layout'  =>  'vertical',
 				));
 				?>
 			</td>
@@ -79,8 +98,21 @@ class acf_field_tablepress extends acf_field {
 		do_action('acf/create_field', $field);
 	}
 
-	function format_value_for_api( $value, $field ) {
-	    return $value;
+	function format_value_for_api( $value, $post_id, $field ) {
+		$field = array_merge($this->defaults, $field);
+
+	    if ( $field['return_format'] == 'table_id' ) return $value;
+	    if ( $field['return_format'] == 'rendered_html' ) {
+	      if ( !function_exists( 'tablepress_get_table' ) ) {
+	        return 'TablePress must be enabled';
+	      }
+	      $value = tablepress_get_table( array(
+	        'id' => $value,
+	        'use_datatables' => true,
+	        'print_name' => false
+	      ) );
+	      return $value;
+	    }
     }
 }
 
