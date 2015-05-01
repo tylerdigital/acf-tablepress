@@ -5,6 +5,8 @@ Requires at least: 4.0
 Tested up to: 4.2
 Stable Tag: 1.0
 
+ACF field type to select a TablePress table
+
 == Description ==
 ** This is an extension for the popular [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin and [TablePress](https://wordpress.org/plugins/tablepress/) plugin. By itself, this plugin does NOTHING. **
 
