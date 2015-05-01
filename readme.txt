@@ -1,4 +1,4 @@
-=== Advanced Custom Fields: TablePress ===
+=== ACF: TablePress ===
 Contributors: tylerdigital, pwtyler, croixhaug 
 Tags: advanced custom fields, acf, tablepress, tables, table, select table, embed table
 Requires at least: 4.0
