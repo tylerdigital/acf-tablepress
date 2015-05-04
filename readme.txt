@@ -3,7 +3,7 @@ Contributors: tylerdigital, pwtyler, croixhaug
 Tags: advanced custom fields, acf, tablepress, tables, table, select table, embed table
 Requires at least: 4.0
 Tested up to: 4.2
-Stable Tag: 1.0
+Stable tag: 1.0
 
 ACF field type to select a TablePress table
 
