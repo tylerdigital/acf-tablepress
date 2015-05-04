@@ -8,7 +8,7 @@ Stable tag: 1.0
 ACF field type to select a TablePress table
 
 == Description ==
-** This is an extension for the popular [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin and [TablePress](https://wordpress.org/plugins/tablepress/) plugin. By itself, this plugin does NOTHING. **
+NOTE: ** This is an extension for the popular [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin and [TablePress](https://wordpress.org/plugins/tablepress/) plugin. By itself, this plugin does NOTHING. ** ENDNOTE
 
 This add-on for Advanced Custom Fields creates a custom field type to select a TablePress table, providing a dropdown menu that lets you select from a list of available tables.  The field returns the table ID number. 
 
@@ -16,7 +16,7 @@ This plugin Requires:
     - Advanced Custom Fields version 4+ or 5+
     - TablePress version 1.5+
 
-* Just to be sure there's no confusion... * ** This plugin does nothing unless [ACF](https://wordpress.org/plugins/advanced-custom-fields/) and [TablePress](https://wordpress.org/plugins/tablepress/) are both active on your site **
+NOTE * Just to be sure there's no confusion... * ** This plugin does nothing unless [ACF](https://wordpress.org/plugins/advanced-custom-fields/) and [TablePress](https://wordpress.org/plugins/tablepress/) are both active on your site ** ENDNOTE
 
 == Installation ==
 1. Copy the 'advanced-custom-fields-tablepress' folder into your plugins folder
@@ -26,14 +26,14 @@ This plugin Requires:
 This field can return the table ID for the table selected, or the full HTML of the table (the same output as the rendered shortcode).
 
 When returning the table ID, either of the following code snippets will output your table.
-```
+`
 <?php 
     $tablepress_id = get_field( 'your_field_here' );
     echo do_shortcode( '[table id="'.$tablepress_id.'"]' ); 
 ?>
-```
+`
 or, to avoid using `do_shortcode()`, use
-```
+`
 <?php
     $tablepress_id = get_field( 'your_field_here' );
     $args = array(
@@ -45,7 +45,7 @@ or, to avoid using `do_shortcode()`, use
       tablepress_print_table( $args );
     }
 ?>
-```
+`
 
 To simply display the chosen table on your page, choose the HTML output option in your field settings, and insert into your php with `the_field( 'your_field_here' )`.
 
