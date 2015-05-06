@@ -13,16 +13,16 @@ ACF field type to select a TablePress table
 This add-on for Advanced Custom Fields creates a custom field type to select a TablePress table, providing a dropdown menu that lets you select from a list of available tables.  The field returns the table ID number. 
 
 This plugin requires:
-    - Advanced Custom Fields version 4+ or 5+
-    - TablePress version 1.5+
+  * Advanced Custom Fields version 4+ or 5+
+  * TablePress version 1.5+
 
 *Just to be sure there's no confusion...* **This plugin does nothing unless [ACF](https://wordpress.org/plugins/advanced-custom-fields/) and [TablePress](https://wordpress.org/plugins/tablepress/) are both active on your site**
 
 == Installation ==
-1. Copy the 'advanced-custom-fields-tablepress' folder into your plugins folder
+1. Copy the `advanced-custom-fields-tablepress` folder into your plugins folder
 2. Activate the plugin via the Plugins admin page
 
-== Using the field ==
+== Using the Field ==
 This field can return the table ID for the table selected, or the full HTML of the table (the same output as the rendered shortcode).
 
 When returning the table ID, either of the following code snippets will output your table.
