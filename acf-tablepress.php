@@ -109,3 +109,15 @@ function acftp_tgmpa_admin_menu_args( $args ) {
 	return $args;
 }
 add_filter('tgmpa_admin_menu_use_add_theme_page', '__return_false' );
+
+add_action( 'init', 'acftp_load_plugin_textdomain' );
+function acftp_load_plugin_textdomain() {
+
+    $domain = 'acf-tablepress';
+    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+
+    load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
+    load_plugin_textdomain( $domain, FALSE, dirname( __FILE__ ) . '/languages/' );
+
+}
+
