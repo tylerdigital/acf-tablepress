@@ -6,7 +6,7 @@ class acf_field_tablepress extends acf_field {
 
 	function __construct() {
 		$this->name = 'tablepress_field';
-		$this->label = __('TablePress', 'advanced-custom-fields-tablepress' );
+		$this->label = __('TablePress', 'acf-tablepress' );
 		$this->category = __("Relational",'acf');
 		$this->defaults = array(
 			'allow_null' => 0,
@@ -46,7 +46,7 @@ class acf_field_tablepress extends acf_field {
 		</tr>
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
-				<label><?php _e("Return Format?",'advanced-custom-fields-tablepress'); ?></label>
+				<label><?php _e("Return Format?",'acf-tablepress'); ?></label>
 			</td>
 			<td>
 				<?php
@@ -55,8 +55,8 @@ class acf_field_tablepress extends acf_field {
 					'name'  =>  'fields['.$key.'][return_format]',
 					'value' =>  $field['return_format'],
 					'choices' =>  array(
-						'table_id' => __("Table ID - Output only the Table ID Number",'advanced-custom-fields-tablepress'),
-						'rendered_html' => __("HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function.",'advanced-custom-fields-tablepress'),
+						'table_id' => __("Table ID - Output only the Table ID Number",'acf-tablepress'),
+						'rendered_html' => __("HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function.",'acf-tablepress'),
 					),
 					'layout'  =>  'vertical',
 				));
@@ -72,7 +72,7 @@ class acf_field_tablepress extends acf_field {
 
 		/* Exits function if TablePress not active */
 		if ( !defined( 'TABLEPRESS_ABSPATH' ) ) {
-		  echo __('TablePress must be activated for this ACF field to work', 'advanced-custom-fields-tablepress');
+		  echo __('TablePress must be activated for this ACF field to work', 'acf-tablepress');
 		  return;
 		}
 
@@ -83,7 +83,7 @@ class acf_field_tablepress extends acf_field {
 
 		/* Get table titles for list of choices */
 		if ( !is_array( $tables ) || empty( $tables ) ) {
-		  echo sprintf( __('No TablePress tables found, once you <a href="%s">add some tables</a> they\'ll show up here.', 'advanced-custom-fields-tablepress' ), admin_url( 'admin.php?page=tablepress' ) );
+		  echo sprintf( __('No TablePress tables found, once you <a href="%s">add some tables</a> they\'ll show up here.', 'acf-tablepress' ), admin_url( 'admin.php?page=tablepress' ) );
 		  return;
 		}
 		

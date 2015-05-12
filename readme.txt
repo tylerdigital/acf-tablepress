@@ -20,7 +20,7 @@ This add-on for Advanced Custom Fields creates a custom field type to select a T
 *Just to be sure there's no confusion...* **This plugin does nothing unless [ACF](https://wordpress.org/plugins/advanced-custom-fields/) and [TablePress](https://wordpress.org/plugins/tablepress/) are both active on your site**
 
 == Installation ==
-1. Copy the `advanced-custom-fields-tablepress` folder into your plugins folder
+1. Copy the `acf-tablepress` folder into your plugins folder
 2. Activate the plugin via the Plugins admin page
 
 == Using the Field ==
