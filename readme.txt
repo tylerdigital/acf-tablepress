@@ -55,5 +55,9 @@ the_field( 'your_field_here' );
 
 == Changelog ==
 
+= Beta =
+* New: Added i18n support
+* Update: Changed text domain to match the plugin slug ('acf-tablepress')
+
 = 1.0 =
 * Initial Release
