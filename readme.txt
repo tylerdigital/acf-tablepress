@@ -57,6 +57,7 @@ the_field( 'your_field_here' );
 
 = Beta =
 * New: Added i18n support
+* New: Added Portuguese translations (pt_PT, pt_BR)
 * Update: Changed text domain to match the plugin slug ('acf-tablepress')
 
 = 1.0 =

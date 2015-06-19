@@ -1,0 +1,395 @@
+#
+# Translators:
+# JoaoPaulo <jpaportugal@gmail.com>, 2015
+# JoaoPaulo <jpaportugal@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: ACF: Tablepress\n"
+"POT-Creation-Date: 2015-05-11 19:47-0800\n"
+"PO-Revision-Date: 2015-06-18 22:05-0500\n"
+"Last-Translator: Nathan Tyler <accounts@tylerdigital.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/acf-tablepress/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: acf-tablepress.php:82
+msgid "Install Required Plugins for ACF TablePress Add-On"
+msgstr "Instalar plugins necessários para o ACF Tablepress Add-On"
+
+#: acf-tablepress.php:83
+msgid "Install ACF TablePress Plugins"
+msgstr "Instalar plugins ACF TablePress"
+
+#: acf-tablepress.php:84 class-tgm-plugin-activation.php:212
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "Instalar Plugin: %s"
+
+#: acf-tablepress.php:85
+msgid "Something went wrong with the plugin API."
+msgstr "Ocorreu um erro com a API do plugin."
+
+#: acf-tablepress.php:86
+#, php-format
+msgid "The ACF: TablePress add-on requires the following plugin: %1$s."
+msgid_plural "The ACF: TablePress add-on requires the following plugins: %1$s."
+msgstr[0] "O ACF: TablePress add-on requere do seguintes plugin: %1$s."
+msgstr[1] "O ACF: TablePress add-on requere dos seguintes plugins: %1$s."
+
+#: acf-tablepress.php:87
+#, php-format
+msgid "The ACF: TablePress add-on recommends the following plugin: %1$s."
+msgid_plural "The ACF: TablePress add-on recommends the following plugins: %1$s."
+msgstr[0] "O ACF: TablePress add-on recomenda o seguinte plugin: %1$s."
+msgstr[1] "O ACF: TablePress add-on recomenda os seguintes plugins: %1$s."
+
+#: acf-tablepress.php:88 class-tgm-plugin-activation.php:216
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
+msgstr[0] "Desculpe, mas não tem as permissões necessárias para instalar o plugin %s. Contacte o administrador deste site para ajudar a instalar o plugin."
+msgstr[1] "Desculpe, mas não tem as permissões necessárias para instalar os plugins %s. Contacte o administrador deste site para ajudar a instalar os plugins."
+
+#: acf-tablepress.php:89
+#, php-format
+msgid "The ACF: TablePress add-on requires the plugin %1$s to be active."
+msgid_plural "The ACF: TablePress add-on requires the plugins %1$s to be active"
+msgstr[0] "O ACF: TablePress add-on requere o plugin %1$s para estar ativo."
+msgstr[1] "O ACF: TablePress add-on requere os plugins %1$s para estar ativo."
+
+#: acf-tablepress.php:90
+#, php-format
+msgid "The ACF: TablePress add-on recommends the plugin %1$s to be active."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "O ACF: TablePress add-on recomenda o plugin %1$s  para estar ativo."
+msgstr[1] "Os seguintes plugins recomendados estão inativos: %1$s."
+
+#: acf-tablepress.php:91 class-tgm-plugin-activation.php:219
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins "
+"activated."
+msgstr[0] "Desculpe, mas não tem as permissões necessárias para ativar o plugin %s. Contacte o administrador deste site para ajudar a instalar o plugin."
+msgstr[1] "Desculpe, mas não tem as permissões necessárias para ativar os plugins %s. Contacte o administrador deste site para ajudar a ativar os plugins."
+
+#: acf-tablepress.php:92
+#, php-format
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this plugin: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this plugin: %1$s."
+msgstr[0] "O seguinte plugin necessita ser atualizado para a última versão para garantir máxima compatibilidade com este plugin: %1$s."
+msgstr[1] "Os seguintes plugins necessitam ser atualizados para a última versão para garantir máxima compatibilidade com este plugin: %1$s."
+
+#: acf-tablepress.php:93 class-tgm-plugin-activation.php:221
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
+msgstr[0] "Desculpe, mas não tem as permissões necessárias para atualizar o plugin %s. Contacte o administrador deste site para ajudar a atualizar o plugin."
+msgstr[1] "Desculpe, mas não tem as permissões necessárias para atualizar os plugins %s. Contacte o administrador deste site para ajudar a atualizar os plugins."
+
+#: acf-tablepress.php:94 class-tgm-plugin-activation.php:222
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Iniciar instalação de plugin"
+msgstr[1] "Iniciar instalação de plugins"
+
+#: acf-tablepress.php:95 class-tgm-plugin-activation.php:223
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "Iniciar ativação de plugin"
+msgstr[1] "Iniciar ativação de plugins"
+
+#: acf-tablepress.php:96 class-tgm-plugin-activation.php:224
+msgid "Return to Required Plugins Installer"
+msgstr "Voltar para o instalador de plugins."
+
+#: acf-tablepress.php:97 class-tgm-plugin-activation.php:226 class-tgm-plugin-activation.php:2005
+msgid "Plugin activated successfully."
+msgstr "Plugin ativado com sucesso"
+
+#: acf-tablepress.php:98
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr "Todos os plugins instalados e ativados com sucesso. %s"
+
+#: class-tgm-plugin-activation.php:210
+msgid "Install Required Plugins"
+msgstr "Instalar plugins necessários"
+
+#: class-tgm-plugin-activation.php:211
+msgid "Install Plugins"
+msgstr "Instalar plugins"
+
+#: class-tgm-plugin-activation.php:213
+msgid "Something went wrong."
+msgstr "Algo deu errado."
+
+#: class-tgm-plugin-activation.php:214
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "Este tema requer o seguinte plugin: %1$s"
+msgstr[1] "Este tema requer os seguintes plugins: %1$s."
+
+#: class-tgm-plugin-activation.php:215
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "Este tema recomenda o seguinte plugin: %1$s."
+msgstr[1] "Este tema recomenda os seguintes plugins: %1$s."
+
+#: class-tgm-plugin-activation.php:217
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "O seguinte plugin requerido está atualmente inativo: %1$s."
+msgstr[1] "Os seguintes plugins requeridos estão atualmente inativos: %1$s."
+
+#: class-tgm-plugin-activation.php:218
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "O seguinte plugin recomendado está atualmente inativo: %1$s."
+msgstr[1] "Os seguintes plugins recomendados estão atualmente inativos: %1$s."
+
+#: class-tgm-plugin-activation.php:220
+#, php-format
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] "O seguinte plugin precisa ser atualizado para a última versão para garantir máxima compatibilidade com este tema: %1$s."
+msgstr[1] "Os seguintes plugins precisam ser atualizados para a última versão para garantir máxima compatibilidade com este tema: %1$s."
+
+#: class-tgm-plugin-activation.php:225
+msgid "Return to the dashboard"
+msgstr "Voltar ao painel"
+
+#: class-tgm-plugin-activation.php:227 class-tgm-plugin-activation.php:1691
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "O seguinte plugin foi ativado com sucesso:"
+msgstr[1] "Os seguintes plugins foram ativados com sucesso"
+
+#: class-tgm-plugin-activation.php:228
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Todos os plugins estão instalados e ativados com sucesso: %1$s"
+
+#: class-tgm-plugin-activation.php:229
+msgid "Dismiss this notice"
+msgstr "Descarte esta notificação"
+
+#: class-tgm-plugin-activation.php:566 class-tgm-plugin-activation.php:2223
+msgid "Return to the Dashboard"
+msgstr "Voltar ao painel"
+
+#: class-tgm-plugin-activation.php:1223
+msgid "Private Repository"
+msgstr "Repositório privado"
+
+#: class-tgm-plugin-activation.php:1226
+msgid "Pre-Packaged"
+msgstr "Pré-preparado"
+
+#: class-tgm-plugin-activation.php:1231
+msgid "WordPress Repository"
+msgstr "Repositório Wordpress"
+
+#: class-tgm-plugin-activation.php:1234
+msgid "Required"
+msgstr "Necessário"
+
+#: class-tgm-plugin-activation.php:1234
+msgid "Recommended"
+msgstr "Recomendado"
+
+#: class-tgm-plugin-activation.php:1237
+msgid "Not Installed"
+msgstr "Não instalado"
+
+#: class-tgm-plugin-activation.php:1239
+msgid "Installed But Not Activated"
+msgstr "Instalado mas não ativado"
+
+#: class-tgm-plugin-activation.php:1341 class-tgm-plugin-activation.php:1449
+msgid "Install"
+msgstr "Instalar"
+
+#: class-tgm-plugin-activation.php:1363 class-tgm-plugin-activation.php:1450
+msgid "Activate"
+msgstr "Ativar"
+
+#: class-tgm-plugin-activation.php:1412
+#, php-format
+msgid "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the Dashboard\">Return to the Dashboard</a>"
+msgstr "Nenhuns plugins para instalar ou ativar. <a href=\"%1$s\" title=\"Return to the Dashboard\">Voltar ao painel</a>"
+
+#: class-tgm-plugin-activation.php:1428
+msgid "Plugin"
+msgstr "Plugin"
+
+#: class-tgm-plugin-activation.php:1429
+msgid "Source"
+msgstr "Fonte"
+
+#: class-tgm-plugin-activation.php:1430
+msgid "Type"
+msgstr "Tipo"
+
+#: class-tgm-plugin-activation.php:1431
+msgid "Status"
+msgstr "Estatuto"
+
+#: class-tgm-plugin-activation.php:1561
+msgid "No plugins are available to be installed at this time."
+msgstr "Nenhuns plugins estão disponívels para serem instalados atualmente."
+
+#: class-tgm-plugin-activation.php:1669
+msgid "No plugins are available to be activated at this time."
+msgstr "Nenhuns plugins estão disponíveis para serem ativados atualmente."
+
+#: class-tgm-plugin-activation.php:1988
+msgid "Install package not available."
+msgstr "Pacote de instalação não disponível."
+
+#: class-tgm-plugin-activation.php:1989
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr "Baixando pacote de instalação <span class=\"code\">%s</span>&#8230;"
+
+#: class-tgm-plugin-activation.php:1990
+msgid "Unpacking the package&#8230;"
+msgstr "Descompactando o pacote&#8230;"
+
+#: class-tgm-plugin-activation.php:1991
+msgid "Installing the plugin&#8230;"
+msgstr "Instalando o plugin&#8230;"
+
+#: class-tgm-plugin-activation.php:1992
+msgid "Plugin install failed."
+msgstr "A instalação do plugin falhou."
+
+#: class-tgm-plugin-activation.php:1993
+msgid "Plugin installed successfully."
+msgstr "Plugin instalado com sucesso"
+
+#: class-tgm-plugin-activation.php:2004
+msgid "Plugin activation failed."
+msgstr "A ativação do plugin falhou"
+
+#: class-tgm-plugin-activation.php:2116
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "Deu um erro ao instalar %1$s: <strong>%2$s</strong>."
+
+#: class-tgm-plugin-activation.php:2117
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "Falhou a instalação de %1$s."
+
+#: class-tgm-plugin-activation.php:2121
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "O processo de instalação e ativação está a ser iniciado. Isto poderá levar algum tempo em alguns anfitriões, por favor seja paciente."
+
+#: class-tgm-plugin-activation.php:2122
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s instalados e ativados com sucesso"
+
+#: class-tgm-plugin-activation.php:2122 class-tgm-plugin-activation.php:2129
+msgid "Show Details"
+msgstr "Mostrar detalhes"
+
+#: class-tgm-plugin-activation.php:2122 class-tgm-plugin-activation.php:2129
+msgid "Hide Details"
+msgstr "Esconder detalhes"
+
+#: class-tgm-plugin-activation.php:2123
+msgid "All installations and activations have been completed."
+msgstr "Todas as instalações e ativações foram concluídas."
+
+#: class-tgm-plugin-activation.php:2124
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Instalando e ativando plugin %1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:2128
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "O processo de instalação está a iniciar. Isto poderá levar algum tempo em alguns anfitriões, por favor seja paciente."
+
+#: class-tgm-plugin-activation.php:2129
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s instalado com sucesso."
+
+#: class-tgm-plugin-activation.php:2130
+msgid "All installations have been completed."
+msgstr "Todas as instalações foram concluídas."
+
+#: class-tgm-plugin-activation.php:2131
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Instalando Plugin %1$s (%2$d/%3$d)"
+
+#: tablepress-v4.php:9 tablepress-v5.php:6
+msgid "TablePress"
+msgstr "TablePress"
+
+#: tablepress-v4.php:10 tablepress-v5.php:7
+msgid "Relational"
+msgstr "Relacional"
+
+#: tablepress-v4.php:30
+msgid "Allow Null?"
+msgstr "Permitir Null?"
+
+#: tablepress-v4.php:39 tablepress-v5.php:23
+msgid "Yes"
+msgstr "Sim"
+
+#: tablepress-v4.php:40 tablepress-v5.php:24
+msgid "No"
+msgstr "Não"
+
+#: tablepress-v4.php:49
+msgid "Return Format?"
+msgstr "Devolver formato?"
+
+#: tablepress-v4.php:58 tablepress-v5.php:36
+msgid "Table ID - Output only the Table ID Number"
+msgstr "ID de tabela - extrair apenas número de ID de tabela"
+
+#: tablepress-v4.php:59 tablepress-v5.php:37
+msgid "HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function."
+msgstr "HTML - extrair HTML renderizado da tabela. Equivalente ao do_shortcode(), mas não usa essa função."
+
+#: tablepress-v4.php:75 tablepress-v5.php:48
+msgid "TablePress must be activated for this ACF field to work"
+msgstr "TablePress necessita ser ativado para que este campo ACF funcione"
+
+#: tablepress-v4.php:86 tablepress-v5.php:60
+#, php-format
+msgid "No TablePress tables found, once you <a href=\"%s\">add some tables</a> they'll show up here."
+msgstr "Nenhuma tabela TablePress encontrada, quando <a href=\"%s\">adicionar tabelas</a> elas aparecerão aqui."
+
+#: tablepress-v5.php:31
+msgid "Return Format"
+msgstr "Devolver formato"
+
+#: tablepress-v5.php:75
+msgid "Select"
+msgstr "Selecionar"
