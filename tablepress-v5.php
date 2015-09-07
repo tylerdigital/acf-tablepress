@@ -97,7 +97,8 @@ class acf_field_tablepress extends acf_field {
         'use_datatables' => true,
         'print_name' => false
       ) );
-      return $value;    }
+      return $value;
+    }
   }
 }
 
