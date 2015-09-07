@@ -94,8 +94,6 @@ class acf_field_tablepress extends acf_field {
       }
       $value = tablepress_get_table( array(
         'id' => $value,
-        'use_datatables' => true,
-        'print_name' => false
       ) );
       return $value;
     }
