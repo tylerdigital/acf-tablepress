@@ -41,7 +41,7 @@ or, to avoid using `do_shortcode()`, use
 <?php
     $tablepress_id = get_field( 'your_field_here' );
     $args = array(
-      'id'                => $tablepress_id,
+      'id' => $tablepress_id,
     );
     if ( function_exists( 'tablepress_print_table' ) ) {
       tablepress_print_table( $args );
