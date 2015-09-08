@@ -2,7 +2,7 @@
 Contributors: tylerdigital, pwtyler, croixhaug 
 Tags: advanced custom fields, acf, tablepress, tables, table, select table, embed table
 Requires at least: 4.0
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: 1.1
 
 ACF field type to select a TablePress table
@@ -10,7 +10,7 @@ ACF field type to select a TablePress table
 == Description ==
 **This is an extension for the popular [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin and [TablePress](https://wordpress.org/plugins/tablepress/) plugin. By itself, this plugin does NOTHING.**
 
-This add-on for Advanced Custom Fields creates a custom field type to select a TablePress table, providing a dropdown menu that lets you select from a list of available tables.  The field returns the table ID number. 
+This add-on for Advanced Custom Fields creates a custom field type to select a TablePress table, providing a dropdown menu that lets you select from a list of available tables. The field can return the table ID for the table selected, or the full HTML of the table. 
 
 **This plugin requires:**
 
@@ -55,6 +55,8 @@ the_field( 'your_field_here' );
 `
 
 == Changelog ==
+
+= beta =
 
 = 1.1 =
 * New: Added i18n support
