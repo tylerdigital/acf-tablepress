@@ -56,7 +56,7 @@ the_field( 'your_field_here' );
 
 == Changelog ==
 
-= beta =
+= Beta =
 
 = 1.1 =
 * New: Added i18n support
