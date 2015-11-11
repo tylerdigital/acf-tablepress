@@ -2,8 +2,8 @@
 Contributors: tylerdigital, pwtyler, croixhaug 
 Tags: advanced custom fields, acf, tablepress, tables, table, select table, embed table
 Requires at least: 4.0
-Tested up to: 4.3
-Stable tag: 1.1
+Tested up to: 4.3.1
+Stable tag: 1.2
 
 ACF field type to select a TablePress table
 
@@ -17,7 +17,7 @@ This add-on for Advanced Custom Fields creates a custom field type to select a T
   * Advanced Custom Fields version 4+ or 5+
   * TablePress version 1.5+
 
-*Just to be sure there's no confusion...* **This plugin does nothing unless [ACF](https://wordpress.org/plugins/advanced-custom-fields/) and [TablePress](https://wordpress.org/plugins/tablepress/) are both active on your site**
+*Just to be sure there's no confusion...* **This plugin does nothing unless [ACF](https://wordpress.org/plugins/advanced-custom-fields/) (Or [ACF Pro](http://www.advancedcustomfields.com/pro/)) and [TablePress](https://wordpress.org/plugins/tablepress/) are both active on your site**
 
 **Follow this plugin on [GitHub](https://github.com/tylerdigital/acf-tablepress)**
 
@@ -56,7 +56,8 @@ the_field( 'your_field_here' );
 
 == Changelog ==
 
-= Beta =
+= 1.2 =
+* Update: Updated TGM-Plugin-Activation library to 2.5.2
 
 = 1.1 =
 * New: Added i18n support
