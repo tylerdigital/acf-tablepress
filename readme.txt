@@ -3,7 +3,7 @@ Contributors: tylerdigital, pwtyler, croixhaug
 Tags: advanced custom fields, acf, tablepress, tables, table, select table, embed table
 Requires at least: 4.0
 Tested up to: 4.3.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 ACF field type to select a TablePress table
 
@@ -55,6 +55,9 @@ the_field( 'your_field_here' );
 `
 
 == Changelog ==
+
+= 1.2.1 =
+* Fix: bug intoducted in last update displaying wrong version number.
 
 = 1.2 =
 * Update: Updated TGM-Plugin-Activation library to 2.5.2
