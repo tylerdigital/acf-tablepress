@@ -92,6 +92,7 @@ class acf_field_tablepress extends acf_field {
 		  $choices[ $table_id ] = $post->post_title;
 		}
 
+	    asort( $choices );
 	    $field['choices'] = $choices;
 	    $field['type']    = 'select';
 
