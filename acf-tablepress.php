@@ -25,99 +25,43 @@ License:
 
 */
 
-/* For ACF 5  */
-// $version = 5 and can be ignored until ACF6 exists
-function include_field_types_tablepress( $version ) {
-	include_once 'tablepress-v5.php';
+function acftp_init() {
+    if ( current_user_can( 'activate_plugins' ) && (!class_exists( 'acf' ) || !class_exists( 'TablePress' ) ) ) {
+        add_action( 'admin_init', 'my_plugin_deactivate' );
+        add_action( 'admin_notices', 'my_plugin_admin_notice' );
+        function my_plugin_deactivate() {
+          deactivate_plugins( plugin_basename( __FILE__ ) );
+        }
+        function my_plugin_admin_notice() {
+            echo "<div class=\"error\"><p><strong>" . __( '"ACF: TablePress"</strong> requires <strong>TablePress</strong> and <strong>Advanced Custom Fields</strong> to function correctly. Please  ensure both plugins are active before activating <strong>ACF: TablePress</strong>. For now, the plug-in has been deactivated.', 'acf-tablepress' ) . "</p></div>";
+
+           if ( isset( $_GET['activate'] ) )
+                unset( $_GET['activate'] );
+        }
+    } else {
+    	/* For ACF 5  */
+    	// $version = 5 and can be ignored until ACF6 exists
+    	function include_field_types_tablepress( $version ) {
+    		include_once 'tablepress-v5.php';
+    	}
+
+    	add_action( 'acf/include_field_types', 'include_field_types_tablepress' );
+
+    	/* For ACF 4  */
+    	function register_fields_tablepress() {
+    	  include_once('tablepress-v4.php');
+    	}
+
+    	add_action('acf/register_fields', 'register_fields_tablepress');
+
+		add_action( 'init', 'acftp_load_plugin_textdomain' );
+		function acftp_load_plugin_textdomain() {
+		    $domain = 'acf-tablepress';
+		    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+			load_textdomain( $domain, WP_LANG_DIR . '/' .$domain. '/' . $domain . '-' . $locale . '.mo' );
+			load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		}
+    }
 }
 
-add_action( 'acf/include_field_types', 'include_field_types_tablepress' );
-
-/* For ACF 4  */
-function register_fields_tablepress() {
-  include_once('tablepress-v4.php');
-}
-
-add_action('acf/register_fields', 'register_fields_tablepress');
-
-
-
-/* Confirms Tablepress in Installed and Activated  */
-require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
-
-add_action( 'tgmpa_register', 'acftp_register_required_plugins' );
-function acftp_register_required_plugins() {
-
-	/*
-	 * Array of plugin arrays. Required keys are name and slug.
-	 * If the source is NOT from the .org repo, then source is also required.
-	 */
-	$plugins = array(
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository.
-		array(
-			'name'      => 'TablePress',
-			'slug'      => 'tablepress',
-			'required'  => true,
-		),
-	);
-
-	/*
-	 * Array of configuration settings. Amend each line as needed.
-	 * If you want the default strings to be available under your own theme domain,
-	 * leave the strings uncommented.
-	 * Some of the strings are added into a sprintf, so see the comments at the
-	 * end of each line for what each argument will be.
-	 */
-	$config = array(
-		'id'           => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
-		'default_path' => '',                      // Default absolute path to pre-packaged plugins.
-		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'has_notices'  => true,                    // Show admin notices or not.
-		'dismissable'  => false,                    // If false, a user cannot dismiss the nag message.
-		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
-		'message'      => '',                      // Message to output right before the plugins table.
-		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins for ACF TablePress Add-On', 'acf-tablepress' ),
-			'menu_title'                      => __( 'Install ACF TablePress Plugins', 'acf-tablepress' ),
-			'installing'                      => __( 'Installing Plugin: %s', 'acf-tablepress' ), // %s = plugin name.
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'acf-tablepress' ),
-			'notice_can_install_required'     => _n_noop( 'The ACF: TablePress add-on requires the following plugin: %1$s.', 'The ACF: TablePress add-on requires the following plugins: %1$s.', 'acf-tablepress' ), // %1$s = plugin name(s).
-			'notice_can_install_recommended'  => _n_noop( 'The ACF: TablePress add-on recommends the following plugin: %1$s.', 'The ACF: TablePress add-on recommends the following plugins: %1$s.', 'acf-tablepress' ), // %1$s = plugin name(s).
-			'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'acf-tablepress' ), // %1$s = plugin name(s).
-			'notice_can_activate_required'    => _n_noop( 'The ACF: TablePress add-on requires the plugin %1$s to be active.', 'The ACF: TablePress add-on requires the plugins %1$s to be active', 'acf-tablepress' ), // %1$s = plugin name(s).
-			'notice_can_activate_recommended' => _n_noop( 'The ACF: TablePress add-on recommends the plugin %1$s to be active.', 'The following recommended plugins are currently inactive: %1$s.', 'acf-tablepress' ), // %1$s = plugin name(s).
-			'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'acf-tablepress' ), // %1$s = plugin name(s).
-			'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this plugin: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this plugin: %1$s.', 'acf-tablepress' ), // %1$s = plugin name(s).
-			'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'acf-tablepress' ), // %1$s = plugin name(s).
-			'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'acf-tablepress' ),
-			'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins', 'acf-tablepress' ),
-			'return'                          => __( 'Return to Required Plugins Installer', 'acf-tablepress' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'acf-tablepress' ),
-			'complete'                        => __( 'All plugins installed and activated successfully. %s', 'acf-tablepress' ), // %s = dashboard link.
-			'nag_type'                        => 'updated', // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
-		)
-	);
-
-	tgmpa( $plugins, $config );
-}
-
-add_filter( 'tgmpa_admin_menu_args', 'acftp_tgmpa_admin_menu_args', 10, 1 );
-function acftp_tgmpa_admin_menu_args( $args ) {
-	$args['parent_slug'] = 'plugins.php';
-	return $args;
-}
-add_filter('tgmpa_admin_menu_use_add_theme_page', '__return_false' );
-
-add_action( 'init', 'acftp_load_plugin_textdomain' );
-function acftp_load_plugin_textdomain() {
-
-    $domain = 'acf-tablepress';
-    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-
-	load_textdomain( $domain, WP_LANG_DIR . '/' .$domain. '/' . $domain . '-' . $locale . '.mo' );
-	load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-
-}
-
+add_action( 'plugins_loaded', 'acftp_init' );
