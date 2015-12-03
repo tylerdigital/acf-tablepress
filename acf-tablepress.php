@@ -33,7 +33,7 @@ function acftp_init() {
           deactivate_plugins( plugin_basename( __FILE__ ) );
         }
         function my_plugin_admin_notice() {
-            echo "<div class=\"error\"><p><strong>" . __( '"ACF: TablePress"</strong> requires <strong>TablePress</strong> and <strong>Advanced Custom Fields</strong> to function correctly. Please  ensure both plugins are active before activating <strong>ACF: TablePress</strong>. For now, the plug-in has been deactivated.', 'acf-tablepress' ) . "</p></div>";
+            echo "<div class=\"error\"><p><strong>" . __( '"ACF: TablePress"</strong> requires <strong>TablePress</strong> and <strong>Advanced Custom Fields</strong> to function correctly. Please ensure both plugins are active before activating <strong>ACF: TablePress</strong>. For now, the plugin has been deactivated.', 'acf-tablepress' ) . "</p></div>";
 
            if ( isset( $_GET['activate'] ) )
                 unset( $_GET['activate'] );
