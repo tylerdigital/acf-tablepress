@@ -26,42 +26,67 @@ License:
 */
 
 function acftp_init() {
-    if ( current_user_can( 'activate_plugins' ) && (!class_exists( 'acf' ) || !class_exists( 'TablePress' ) ) ) {
-        add_action( 'admin_init', 'my_plugin_deactivate' );
-        add_action( 'admin_notices', 'my_plugin_admin_notice' );
-        function my_plugin_deactivate() {
-          deactivate_plugins( plugin_basename( __FILE__ ) );
-        }
-        function my_plugin_admin_notice() {
-            echo "<div class=\"error\"><p><strong>" . __( '"ACF: TablePress"</strong> requires <strong>TablePress</strong> and <strong>Advanced Custom Fields</strong> to function correctly. Please ensure both plugins are active before activating <strong>ACF: TablePress</strong>. For now, the plugin has been deactivated.', 'acf-tablepress' ) . "</p></div>";
-
-           if ( isset( $_GET['activate'] ) )
-                unset( $_GET['activate'] );
-        }
-    } else {
-    	/* For ACF 5  */
-    	// $version = 5 and can be ignored until ACF6 exists
-    	function include_field_types_tablepress( $version ) {
-    		include_once 'tablepress-v5.php';
-    	}
-
-    	add_action( 'acf/include_field_types', 'include_field_types_tablepress' );
-
-    	/* For ACF 4  */
-    	function register_fields_tablepress() {
-    	  include_once('tablepress-v4.php');
-    	}
-
-    	add_action('acf/register_fields', 'register_fields_tablepress');
-
-		add_action( 'init', 'acftp_load_plugin_textdomain' );
-		function acftp_load_plugin_textdomain() {
-		    $domain = 'acf-tablepress';
-		    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-			load_textdomain( $domain, WP_LANG_DIR . '/' .$domain. '/' . $domain . '-' . $locale . '.mo' );
-			load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-		}
+  if ( current_user_can( 'activate_plugins' ) ) {
+    if ( !class_exists( 'acf' ) ) {
+      global $acftp_acf_inactive;
+      $acftp_acf_inactive = true;
     }
+    if ( !class_exists( 'TablePress' ) ) {
+      global $acftp_tp_inactive;
+      $acftp_tp_inactive = true;
+    }
+    
+    if ( $acftp_acf_inactive || $acftp_tp_inactive ) {
+      add_action( 'admin_init', 'acftp_deactivate' );
+      add_action( 'admin_notices', 'acftp_admin_notice' );
+
+      function acftp_deactivate() {
+        deactivate_plugins( plugin_basename( __FILE__ ) );
+      }
+      function acftp_admin_notice() {
+        global $acftp_acf_inactive;
+        global $acftp_tp_inactive;
+
+        if ( $acftp_tp_inactive && $acftp_acf_inactive ) {
+          $to_enable .= '<strong>Advanced Custom Fields</strong> & <strong>TablePress</strong>';
+        } else {
+          $to_enable .= '<strong>' . ( $acftp_acf_inactive ? 'Advanced Custom Fields' : 'TablePress' ) . '</strong>';
+        }
+
+        $error_message  = '<div class="error"><p>';
+        $error_message .= sprintf( __( '%1$s requires both %2$s and %3$s to function correctly. Please activate %4$s before activating %1$s. For now, the plugin has been deactivated.', 'acf-tablepress' ), '<strong>ACF: TablePress</strong>', '<strong>TablePress</strong>', '<strong>Advanced Custom Fields (4 or 5)</strong>', $to_enable );
+        $error_message .= '</p></div>';
+        echo $error_message;
+
+        if ( isset( $_GET['activate'] ) ) {
+          unset( $_GET['activate'] );
+        }
+      }
+    } else {
+      /* For ACF 5  */
+      // $version = 5 and can be ignored until ACF6 exists
+      function include_field_types_tablepress( $version ) {
+        include_once 'tablepress-v5.php';
+      }
+
+      add_action( 'acf/include_field_types', 'include_field_types_tablepress' );
+
+      /* For ACF 4  */
+      function register_fields_tablepress() {
+        include_once('tablepress-v4.php');
+      }
+
+      add_action('acf/register_fields', 'register_fields_tablepress');
+
+      add_action( 'init', 'acftp_load_plugin_textdomain' );
+      function acftp_load_plugin_textdomain() {
+        $domain = 'acf-tablepress';
+        $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+        load_textdomain( $domain, WP_LANG_DIR . '/' .$domain. '/' . $domain . '-' . $locale . '.mo' );
+        load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+      }
+    }
+  }
 }
 
 add_action( 'plugins_loaded', 'acftp_init' );
