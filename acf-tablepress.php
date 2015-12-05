@@ -54,7 +54,7 @@ function acftp_init() {
         }
 
         $error_message  = '<div class="error"><p>';
-        $error_message .= sprintf( __( '%1$s requires both %2$s and %3$s to function correctly. Please activate %4$s before activating %1$s. For now, the plugin has been deactivated.', 'acf-tablepress' ), '<strong>ACF: TablePress</strong>', '<strong>TablePress</strong>', '<strong>Advanced Custom Fields (4 or 5)</strong>', $to_enable );
+        $error_message .= sprintf( __( '%1$s requires both %2$s and %3$s to function correctly. Please activate %4$s before activating %1$s. For now, the plugin has been deactivated.', 'acf-tablepress' ), '<strong>ACF: TablePress</strong>', '<strong>TablePress</strong>', '<strong>' . __( 'Advanced Custom Fields (4 or 5)', 'acf-tablepress' ) . '</strong>', $to_enable );
         $error_message .= '</p></div>';
         echo $error_message;
 
