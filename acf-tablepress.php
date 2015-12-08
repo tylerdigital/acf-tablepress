@@ -48,9 +48,9 @@ function acftp_init() {
         global $acftp_tp_inactive;
 
         if ( $acftp_tp_inactive && $acftp_acf_inactive ) {
-          $to_enable .= '<strong>Advanced Custom Fields</strong> & <strong>TablePress</strong>';
+          $to_enable = '<strong>Advanced Custom Fields</strong> & <strong>TablePress</strong>';
         } else {
-          $to_enable .= '<strong>' . ( $acftp_acf_inactive ? 'Advanced Custom Fields' : 'TablePress' ) . '</strong>';
+          $to_enable = '<strong>' . ( isset($acftp_acf_inactive) ? 'Advanced Custom Fields' : 'TablePress' ) . '</strong>';
         }
 
         $error_message  = '<div class="error"><p>';
