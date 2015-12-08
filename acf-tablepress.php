@@ -26,6 +26,8 @@ License:
 */
 
 function acftp_init() {
+  global $acftp_acf_inactive;
+  global $acftp_tp_inactive;
   if ( current_user_can( 'activate_plugins' ) ) {
     if ( !class_exists( 'acf' ) ) {
       global $acftp_acf_inactive;
@@ -36,7 +38,7 @@ function acftp_init() {
       $acftp_tp_inactive = true;
     }
     
-    if ( $acftp_acf_inactive || $acftp_tp_inactive ) {
+    if ( isset($acftp_acf_inactive) || isset($acftp_tp_inactive) ) {
       add_action( 'admin_init', 'acftp_deactivate' );
       add_action( 'admin_notices', 'acftp_admin_notice' );
 
@@ -47,7 +49,7 @@ function acftp_init() {
         global $acftp_acf_inactive;
         global $acftp_tp_inactive;
 
-        if ( $acftp_tp_inactive && $acftp_acf_inactive ) {
+        if ( isset($acftp_acf_inactive) && isset($acftp_tp_inactive) ) {
           $to_enable = '<strong>Advanced Custom Fields</strong> & <strong>TablePress</strong>';
         } else {
           $to_enable = '<strong>' . ( isset($acftp_acf_inactive) ? 'Advanced Custom Fields' : 'TablePress' ) . '</strong>';
