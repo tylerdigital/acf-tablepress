@@ -3,7 +3,7 @@ Contributors: tylerdigital, pwtyler, croixhaug
 Tags: advanced custom fields, acf, tablepress, tables, table, select table, embed table
 Requires at least: 4.0
 Tested up to: 4.4
-Stable tag: 1.3
+Stable tag: 1.3.1
 
 ACF field type to select a TablePress table
 
@@ -56,8 +56,11 @@ the_field( 'your_field_here' );
 
 == Changelog ==
 
+= 1.3.1 =
+* Fix: Fixed undefined variable notices introduced in 1.3.
+
 = 1.3 =
-* Improved activation check: plugin now checks for Advanced Custom Fields as well as TablePress before activating.
+* Update: Improved activation check: plugin now checks for Advanced Custom Fields as well as TablePress before activating.
 
 = 1.2.2 =
 * Update: Drop-down list sorts by table title instead of table ID.
