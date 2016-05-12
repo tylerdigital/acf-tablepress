@@ -25,21 +25,6 @@ class acf_field_tablepress extends acf_field {
       ),
       'layout'  =>  'horizontal'
     ));
-
-    // return_format
-    acf_render_field_setting( $field, array(
-      'label'      => __('Return Format','acf-tablepress'),
-      'instructions'  => '',
-      'type'       => 'radio',
-      'name'       => 'return_format',
-      'choices'    => array(
-        'table_id' => __("Table ID - Output only the Table ID Number",'acf-tablepress'),
-        'rendered_html' => __("HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function.",'acf-tablepress'),
-      ),
-
-      'layout'  =>  'vertical'
-    ));
-
   }
   
   function render_field( $field ) {
@@ -88,16 +73,8 @@ class acf_field_tablepress extends acf_field {
   }
     
   function format_value( $value, $post_id, $field ) {
-    if ( $field['return_format'] == 'table_id' ) return $value;
-    if ( $field['return_format'] == 'rendered_html' ) {
-      if ( !function_exists( 'tablepress_get_table' ) ) {
-        return 'TablePress must be enabled';
-      }
-      $value = tablepress_get_table( array(
-        'id' => $value,
-      ) );
-      return $value;
-    }
+    /* Simply Returning $value (Table ID), as it turns out the rendered_html output is super broken. See release notes. */
+    return $value;
   }
 }
 
