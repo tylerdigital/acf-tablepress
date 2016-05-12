@@ -28,7 +28,7 @@ License:
 function acftp_init() {
   global $acftp_acf_inactive;
   global $acftp_tp_inactive;
-  if ( current_user_can( 'activate_plugins' ) ) {
+  if ( current_user_can( 'edit_posts' ) ) {
     if ( !class_exists( 'acf' ) ) {
       global $acftp_acf_inactive;
       $acftp_acf_inactive = true;
