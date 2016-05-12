@@ -2,15 +2,15 @@
 Contributors: tylerdigital, pwtyler, croixhaug 
 Tags: advanced custom fields, acf, tablepress, tables, table, select table, embed table
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 1.3.1
+Tested up to: 4.5.1
+Stable tag: 1.3.2
 
 ACF field type to select a TablePress table
 
 == Description ==
 **This is an extension for the popular [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin and [TablePress](https://wordpress.org/plugins/tablepress/) plugin. By itself, this plugin does NOTHING.**
 
-This add-on for Advanced Custom Fields creates a custom field type to select a TablePress table, providing a dropdown menu that lets you select from a list of available tables. The field can return the table ID for the table selected, or the full HTML of the table. 
+TThis add-on for Advanced Custom Fields creates a custom field type to select a TablePress table, providing a dropdown menu that lets you select from a list of available tables. The field returns the table ID for the table selected.
 
 **This plugin requires:**
 
@@ -21,15 +21,13 @@ This add-on for Advanced Custom Fields creates a custom field type to select a T
 
 **Follow this plugin on [GitHub](https://github.com/tylerdigital/acf-tablepress)**
 
-
 == Installation ==
 1. Copy the `acf-tablepress` folder into your plugins folder
 2. Activate the plugin via the Plugins admin page
 
 == Using the Field ==
-This field can return the table ID for the table selected, or the full HTML of the table (the same output as the rendered shortcode).
+This field returns the table ID for the table selected, and you can display the table with either of the following code snippets in your template file: 
 
-When returning the table ID, either of the following code snippets will output your table.
 `
 <?php 
     $tablepress_id = get_field( 'your_field_here' );
@@ -49,12 +47,12 @@ or, to avoid using `do_shortcode()`, use
 ?>
 `
 
-To simply display the chosen table on your page, choose the HTML output option in your field settings, and insert into your php with 
-`
-the_field( 'your_field_here' );
-`
-
 == Changelog ==
+
+= 1.3.2 =
+
+* Fix: WARNING: THIS UPDATE MAY BREAK YOUR CURRENT SETUP IF YOU ARE USING "HTML OUTPUT". Removed "HTML Output" as an option for Return Format. It appears the table will not display correctly if not logged-in. This should not affect anybody already running the plugin with "Table ID" output. See [this thread](https://wordpress.org/support/topic/logged-in-logged-out-issue) for more information.
+* Fix: Fixed bug that prevented non-administrator users from inserting tables.
 
 = 1.3.1 =
 * Fix: Fixed undefined variable notices introduced in 1.3.

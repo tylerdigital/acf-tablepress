@@ -2,7 +2,7 @@
 /*
 Plugin Name: Advanced Custom Fields: TablePress
 Description: ACF field to select one or many TablePress tables
-Version: 1.3.1
+Version: 1.3.2
 Author: Tyler Digital
 Author URI: http://tylerdigital.com
 Author Email: support@tylerdigital.com
