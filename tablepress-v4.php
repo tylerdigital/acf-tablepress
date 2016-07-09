@@ -44,6 +44,25 @@ class acf_field_tablepress extends acf_field {
 				?>
 			</td>
 		</tr>
+		<tr class="field_option field_option_<?php echo $this->name; ?>">
+			<td class="label">
+				<label><?php _e("Return Format?",'acf-tablepress'); ?></label>
+			</td>
+			<td>
+				<?php
+				do_action('acf/create_field', array(
+					'type'  =>  'radio',
+					'name'  =>  'fields['.$key.'][return_format]',
+					'value' =>  $field['return_format'],
+					'choices' =>  array(
+						'table_id' => __("Table ID - Output only the Table ID Number",'acf-tablepress'),
+						'rendered_html' => __("HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function.",'acf-tablepress'),
+					),
+					'layout'  =>  'vertical',
+				));
+				?>
+			</td>
+		</tr>
 	<?php
 	}
 
@@ -81,9 +100,18 @@ class acf_field_tablepress extends acf_field {
 	}
 
 	function format_value_for_api( $value, $post_id, $field ) {
-		/* Simply Returning $value (Table ID), as it turns out the rendered_html output is super broken. See release notes. */
-		return $value;
+		$field = array_merge($this->defaults, $field);
 
+	    if ( $field['return_format'] == 'table_id' ) return $value;
+	    if ( $field['return_format'] == 'rendered_html' ) {
+	      if ( !function_exists( 'tablepress_get_table' ) ) {
+	        return 'TablePress must be enabled';
+	      }
+	      $value = tablepress_get_table( array(
+	        'id' => $value,
+	      ) );
+	      return $value;
+	    }
     }
 }
 
