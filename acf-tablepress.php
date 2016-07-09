@@ -69,29 +69,29 @@ function acftp_init() {
           unset( $_GET['activate'] );
         }
       }
-    } else {
-      /* For ACF 5  */
-      // $version = 5 and can be ignored until ACF6 exists
-      function include_field_types_tablepress( $version ) {
-        include_once 'tablepress-v5.php';
-      }
-      add_action( 'acf/include_field_types', 'include_field_types_tablepress' );
-
-      /* For ACF 4  */
-      function register_fields_tablepress() {
-        include_once('tablepress-v4.php');
-      }
-      add_action('acf/register_fields', 'register_fields_tablepress');
-
-      add_action( 'init', 'acftp_load_plugin_textdomain' );
-      function acftp_load_plugin_textdomain() {
-        $domain = 'acf-tablepress';
-        $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-        load_textdomain( $domain, WP_LANG_DIR . '/' .$domain. '/' . $domain . '-' . $locale . '.mo' );
-        load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-      }
     }
   }
+
+  /* For ACF 5  */
+  // $version = 5 and can be ignored until ACF6 exists
+  function include_field_types_tablepress( $version ) {
+    include_once 'tablepress-v5.php';
+  }
+  add_action( 'acf/include_field_types', 'include_field_types_tablepress' );
+
+  /* For ACF 4  */
+  function register_fields_tablepress() {
+    include_once('tablepress-v4.php');
+  }
+  add_action('acf/register_fields', 'register_fields_tablepress');
+
+  add_action( 'init', 'acftp_load_plugin_textdomain' );
+  function acftp_load_plugin_textdomain() {
+    $domain = 'acf-tablepress';
+    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+    load_textdomain( $domain, WP_LANG_DIR . '/' .$domain. '/' . $domain . '-' . $locale . '.mo' );
+    load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+  }  
 }
 
 add_action( 'plugins_loaded', 'acftp_init' );
