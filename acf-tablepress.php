@@ -45,10 +45,7 @@ function acftp_init() {
       add_action( 'admin_notices', 'acftp_admin_notice' );
 
       function acftp_deactivate() {
-        if ( current_user_can( 'activate_plugins' ) ) {
-          echo '<pre>'.print_r('alohog!', true).'</pre>';
-          deactivate_plugins( plugin_basename( __FILE__ ) );
-        }
+        deactivate_plugins( plugin_basename( __FILE__ ) );
       }
       function acftp_admin_notice() {
         global $acftp_acf_inactive;
