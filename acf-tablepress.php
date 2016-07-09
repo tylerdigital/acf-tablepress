@@ -25,6 +25,8 @@ License:
 
 */
 
+if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 function acftp_init() {
   global $acftp_acf_inactive;
   global $acftp_tp_inactive;
@@ -70,14 +72,12 @@ function acftp_init() {
       function include_field_types_tablepress( $version ) {
         include_once 'tablepress-v5.php';
       }
-
       add_action( 'acf/include_field_types', 'include_field_types_tablepress' );
 
       /* For ACF 4  */
       function register_fields_tablepress() {
         include_once('tablepress-v4.php');
       }
-
       add_action('acf/register_fields', 'register_fields_tablepress');
 
       add_action( 'init', 'acftp_load_plugin_textdomain' );
