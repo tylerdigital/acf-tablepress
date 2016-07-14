@@ -2,8 +2,8 @@
 Contributors: tylerdigital, pwtyler, croixhaug 
 Tags: advanced custom fields, acf, tablepress, tables, table, select table, embed table
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 1.3.1
+Tested up to: 4.5.2
+Stable tag: 1.3.2
 
 ACF field type to select a TablePress table
 
@@ -21,7 +21,6 @@ This add-on for Advanced Custom Fields creates a custom field type to select a T
 
 **Follow this plugin on [GitHub](https://github.com/tylerdigital/acf-tablepress)**
 
-
 == Installation ==
 1. Copy the `acf-tablepress` folder into your plugins folder
 2. Activate the plugin via the Plugins admin page
@@ -29,7 +28,7 @@ This add-on for Advanced Custom Fields creates a custom field type to select a T
 == Using the Field ==
 This field can return the table ID for the table selected, or the full HTML of the table (the same output as the rendered shortcode).
 
-When returning the table ID, either of the following code snippets will output your table.
+When returning the table ID, either of the following code snippets will output your table (replacing 'your_table_here' with the field name you defined in your ACF Field Group settings).
 `
 <?php 
     $tablepress_id = get_field( 'your_field_here' );
@@ -54,7 +53,13 @@ To simply display the chosen table on your page, choose the HTML output option i
 the_field( 'your_field_here' );
 `
 
+For a more detailed explanation, see our article, [Setting up an ACF field for TablePress](http://tylerdigital.com/document/setting-up-an-acf-field-for-tablepress/).
+
 == Changelog ==
+
+= 1.3.2 =
+* Fix: Fixed bug that prevented non-administrator users from inserting tables.
+* Fix: Fixed bug that failed to display the table while logged out and using "HTML Output"
 
 = 1.3.1 =
 * Fix: Fixed undefined variable notices introduced in 1.3.
