@@ -1,8 +1,7 @@
 <?php
 class acf_field_tablepress extends acf_field {
-	
 	var $settings,
-		  $defaults; 
+		$defaults; 
 
 	function __construct() {
 		$this->name = 'tablepress_field';
@@ -10,17 +9,13 @@ class acf_field_tablepress extends acf_field {
 		$this->category = __("Relational",'acf');
 		$this->defaults = array(
 			'allow_null' => 0,
-	    	'return_format' => 'table_id'
+			'return_format' => 'table_id'
 		);
-
-	    parent::__construct();
+		parent::__construct();
 	}
 
 	function create_options( $field ) {
-		
 		$field = array_merge($this->defaults, $field);
-
-		
 		$key = $field['name'];
 
 		/* Create Field Options HTML */
@@ -32,9 +27,9 @@ class acf_field_tablepress extends acf_field {
 			<td>
 				<?php
 				do_action('acf/create_field', array(
-					'type'  =>  'radio',
-					'name'  =>  'fields['.$key.'][allow_null]',
-					'value' =>  $field['allow_null'],
+					'type'    =>  'radio',
+					'name'    =>  'fields['.$key.'][allow_null]',
+					'value'   =>  $field['allow_null'],
 					'choices' =>  array(
 						1 =>  __("Yes",'acf'),
 						0 =>  __("No",'acf'),
@@ -88,13 +83,13 @@ class acf_field_tablepress extends acf_field {
 		}
 		
 		foreach ($tables as $table_id => $post_id) {
-		  $post = get_post( $post_id );
-		  $choices[ $table_id ] = $post->post_title;
+			$post = get_post( $post_id );
+			$choices[ $table_id ] = $post->post_title;
 		}
 
-	    asort( $choices );
-	    $field['choices'] = $choices;
-	    $field['type']    = 'select';
+		asort( $choices );
+		$field['choices'] = $choices;
+		$field['type']    = 'select';
 
 		do_action('acf/create_field', $field);
 	}
@@ -102,17 +97,17 @@ class acf_field_tablepress extends acf_field {
 	function format_value_for_api( $value, $post_id, $field ) {
 		$field = array_merge($this->defaults, $field);
 
-	    if ( $field['return_format'] == 'table_id' ) return $value;
-	    if ( $field['return_format'] == 'rendered_html' ) {
-	      if ( !function_exists( 'tablepress_get_table' ) ) {
-	        return 'TablePress must be enabled';
-	      }
-	      $value = tablepress_get_table( array(
-	        'id' => $value,
-	      ) );
-	      return $value;
+		if ( $field['return_format'] == 'table_id' ) return $value;
+		if ( $field['return_format'] == 'rendered_html' ) {
+			if ( !function_exists( 'tablepress_get_table' ) ) {
+				return 'TablePress must be enabled';
+			}
+			$value = tablepress_get_table( array(
+				'id' => $value,
+			) );
+			return $value;
 	    }
     }
-}
+} //End of Class
 
 new acf_field_tablepress();
