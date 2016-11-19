@@ -11,28 +11,32 @@ class acf_field_tablepress extends acf_field {
 		parent::__construct();
 	}
 	function render_field_settings( $field ) {
-		acf_render_field_setting( $field, array(
-			'label' => 'Allow Null?',
-			'type'  =>  'radio',
-			'name'  =>  'allow_null',
-			'choices' =>  array(
-				1 =>  __("Yes",'acf'),
-				0 =>  __("No",'acf'),
+		$field_settings_params = array(
+			array(
+				'label'   => 'Allow Null?',
+				'type'    =>  'radio',
+				'name'    =>  'allow_null',
+				'choices' =>  array(
+					1 =>  __("Yes",'acf'),
+					0 =>  __("No",'acf'),
+				),
+				'layout'  =>  'horizontal'
 			),
-			'layout'  =>  'horizontal'
-		));
-		// return_format
-		acf_render_field_setting( $field, array(
-			'label'      => __('Return Format','acf-tablepress'),
-			'instructions'  => '',
-			'type'       => 'radio',
-			'name'       => 'return_format',
-			'choices'    => array(
-				'table_id' => __("Table ID - Output only the Table ID Number",'acf-tablepress'),
-				'rendered_html' => __("HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function.",'acf-tablepress'),
-			),
-			'layout'  =>  'vertical'
-		));
+			array(
+				'label'         => __('Return Format','acf-tablepress'),
+				'instructions'  => '',
+				'type'          => 'radio',
+				'name'          => 'return_format',
+				'choices'       => array(
+					'table_id'      => __("Table ID - Output only the Table ID Number",'acf-tablepress'),
+					'rendered_html' => __("HTML - Output the rendered HTML of the table itself. Equivalent to do_shortcode(), but does not use that function.",'acf-tablepress'),
+				),
+				'layout'        =>  'vertical'
+			)
+		);
+		foreach ($field_settings_params as $field_settings) {
+			acf_render_field_setting( $field, $field_settings);
+		}
 	}
 	function render_field( $field ) {
 		/* Exits function if TablePress not active */
