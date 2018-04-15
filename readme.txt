@@ -57,6 +57,9 @@ For a more detailed explanation, see our article, [Setting up an ACF field for T
 
 == Changelog ==
 
+NEXT
+* Code Cleanup: refactored render_field_settings for ACF5
+
 = 1.3.2 =
 * Fix: Fixed bug that prevented non-administrator users from inserting tables.
 * Fix: Fixed bug that failed to display the table while logged out and using "HTML Output"
