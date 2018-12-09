@@ -74,7 +74,7 @@ NEXT
 * Update: Drop-down list sorts by table title instead of table ID.
 
 = 1.2.1 =
-* Fix: bug intoducted in last update displaying wrong version number.
+* Fix: bug introduced in the last update displaying the wrong version number.
 
 = 1.2 =
 * Update: Updated TGM-Plugin-Activation library to 2.5.2
